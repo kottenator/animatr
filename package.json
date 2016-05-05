@@ -1,0 +1,19 @@
+{
+  "name": "animatr",
+  "version": "0.0.1",
+  "author": "Rostyslav Bryzgunov <kottenator@gmail.com>",
+  "description": "DOM/CSS-free animation/tween library",
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "*",
+    "babelify": "*",
+    "babel-preset-es2015": "*",
+    "exorcist": "*",
+    "minifyify": "*",
+    "derequire": "*"
+  },
+  "scripts": {
+    "build-js": "./node_modules/.bin/browserify src/easing.js -d -s animatr -t [ babelify --presets=babel-preset-es2015 ] | ./node_modules/.bin/exorcist dist/easing.js.map | ./node_modules/.bin/derequire > dist/easing.js",
+    "build-js-min": "./node_modules/.bin/browserify src/easing.js -d -s animatr -t [ babelify --presets=babel-preset-es2015 ] -p [ minifyify --output dist/easing.min.js.map --map=easing.min.js.map ] | ./node_modules/.bin/derequire > dist/easing.min.js"
+  }
+}

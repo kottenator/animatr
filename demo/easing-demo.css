@@ -1,0 +1,12 @@
+.preview {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 10px 0;
+}
+
+.title {
+  font: 12px/1 sans-serif;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

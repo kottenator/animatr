@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tests</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vendor/mocha.css" />
+    <style>
+      .legend {
+        display: none;
+        position: fixed;
+        top: 50px;
+        right: 0;
+        width: 270px;
+      }
+
+      @media screen and (min-width: 768px) {
+        .legend {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <pre class="legend">p = b - a² / 3
+q = 2 × a³ / 27 - a × b / 3 + c
+Δ = p³ / 27 + q² / 4</pre>
+    <script src="vendor/mocha.js"></script>
+    <script src="vendor/unexpected.js"></script>
+    <script src="../src/utils.js"></script>
+    <script>mocha.setup('bdd');</script>
+    <script src="test_utils.js"></script>
+    <script>mocha.run();</script>
+  </body>
+</html>

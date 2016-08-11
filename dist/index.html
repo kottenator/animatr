@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Debug the build</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css" rel="stylesheet" type="text/css">
+    <style>
+      body {
+        font: 14px/1.3 Open Sans, sans-serif;
+      }
+
+      h3 {
+        font-size: 2em;
+      }
+
+      code {
+        font: 14px/1.3 Inconsolata, monospace;
+      }
+
+      a {
+        color: #0040d0;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>
+      Is it built?
+    </h3>
+    <p>
+       Open console and run:
+    </p>
+    <pre><code>for (var i = 0, n = 20; i < n; i++)
+  console.log(
+    new Array(
+      Math.round(
+        animatr.Easing.cubicBezier(i / n, 0.7, 0.2, 0.6, 1) * 40
+      )
+    ).join('-') + '*'
+  );</code></pre>
+    <p>
+      The main thing here is <code>window.animatr</code>.
+    </p>
+    <h3>
+      What about debug?
+    </h3>
+
+    <p>
+      Go to debugger and see source-map in action
+    </p>
+    <p id="link-text">
+      Also check the same for
+      <a href="#"
+         data-url="easing.js"
+         data-text="Unminified version"
+         data-min-url="easing.min.js"
+         data-min-text="Minified version"
+      >...</a>
+    </p>
+    <script id="script" src="easing.min.js"></script>
+    <script>
+      var link = document.querySelector('#link-text a');
+      var script = document.getElementById('script');
+
+      function toggleSource () {
+        if (link.textContent == link.getAttribute('data-min-text')) {
+          link.textContent = link.getAttribute('data-text');
+          script.setAttribute('src', link.getAttribute('data-min-url'));
+        } else {
+          link.textContent = link.getAttribute('data-min-text');
+          script.setAttribute('src', link.getAttribute('data-url'));
+        }
+      }
+
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleSource();
+      });
+
+//      toggleSource();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

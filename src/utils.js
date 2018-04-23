@@ -36,7 +36,7 @@ export function solveQuadraticEquation(a, b) {
  * Finds only real roots, not complex.
  *
  * Based on Cardano method. This source used in particular:
- * http://www.trans4mind.com/personal_development/mathematics/polynomials/cubicAlgebra.htm
+ * https://trans4mind.com/personal_development/mathematics/polynomials/cubicAlgebra.htm
  *
  * @param {Number} a
  * @param {Number} b
